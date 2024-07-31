@@ -1,9 +1,9 @@
 ---
-title: About
-author: Tao He
-date: 2022-02-04
+title: 关于
+author: 韦二伯格
+date: 2024-08-01
 category: Jekyll
 layout: post
 ---
 
-This is an about page.
+关于本站。
