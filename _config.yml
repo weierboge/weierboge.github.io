@@ -1,16 +1,16 @@
 # Configurations
-title:            Jekyll Gitbook
-longtitle:        Jekyll Gitbook
-author:           HE Tao
-email:            sighingnow@gmail.com
+title:            韦二伯格
+longtitle:        韦二伯格 作品集
+author:           韦二伯格
+email:            3474222613@qq.com
 description: >
-  Build Jekyll site with the GitBook style.
+  这里是我的个人作品集
 
 version:          1.0
 gitbook_version:  3.2.3
 
-url:              'https://sighingnow.github.io'
-baseurl:          '/jekyll-gitbook'
+url:              'https://boge.github.io'
+baseurl:          '/韦二伯格'
 rss:              RSS
 
 # bootstrap: use the remote theme for the site itself
