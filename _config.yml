@@ -1,7 +1,7 @@
 # Configurations
 title:            韦二伯格
 longtitle:        韦二伯格 作品集
-author:           韦二伯格
+author:     
 email:            3474222613@qq.com
 description: >
   这里是我的个人作品集
@@ -10,7 +10,7 @@ version:          1.0
 gitbook_version:  3.2.3
 
 url:              'https://boge.github.io'
-baseurl:          '/韦二伯格'
+baseurl:          '/https://boge.github.io'
 rss:              RSS
 
 # bootstrap: use the remote theme for the site itself
