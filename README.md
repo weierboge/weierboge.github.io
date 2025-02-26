@@ -1,8 +1,3 @@
----
-layout: home
-title: 关于本站
-permalink: /
----
 
 ### Hi there 👋 欢迎来到我的主页！
 
