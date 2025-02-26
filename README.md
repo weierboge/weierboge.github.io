@@ -10,27 +10,5 @@ permalink: /
 
 这是我的知乎主页：[@韦二伯格](https://www.zhihu.com/people/wei-shi-bo)
 
-我通过GitHub和 New bing 打造了几个免费的小工具：
-
-1.[红书帮-小红书一键添加emoji表情](https://www.hongshubang.com)  :一键把你的文案转换为带有emoji表情的小红书格式
-
-2.[在线字数统计](https://zishutongji.com/) ：一个简单的字数统计小工具
 
 
-
-
-
-<!--
-**weierboge/weierboge** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
