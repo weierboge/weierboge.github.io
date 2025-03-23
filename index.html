@@ -16,6 +16,8 @@
       max-width: 800px;
       margin: 0 auto;
       padding: 0 00px;
+      padding-bottom: 10px; /* 减少内容区域底部的内边距 */
+      margin-bottom: 10px; /* 减少内容区域底部的外边距 */
     }
 
    .markdown-section h1 {
@@ -79,11 +81,44 @@
       padding: 20px 0;
       font-size: 0.9rem;
       color: #666;
+     margin-top: 20px; /* 减少版权声明的上边距 */
     }
-
+  /* 分页导航样式 */
+   .pagination {
+      margin-top: 30px; /* 调整分页导航的上边距 */
     /* 为页面底部添加留白 */
     body {
       padding-bottom: 40px;
+    }
+      /* 响应式布局优化 */
+    @media (max-width: 1440px) {
+     .markdown-section {
+        max-width: 80vw;
+      }
+    }
+
+    @media (max-width: 1200px) {
+     .markdown-section {
+        max-width: 85vw;
+      }
+    }
+
+    @media (max-width: 992px) {
+     .markdown-section {
+        max-width: 90vw;
+        margin-left: 150px;
+      }
+    }
+
+    @media (max-width: 768px) {
+     .sidebar {
+        display: none;
+      }
+     .markdown-section {
+        max-width: 100%;
+        margin-left: 0;
+        padding: 0 10px;
+      }
     }
   </style>
 </head>
