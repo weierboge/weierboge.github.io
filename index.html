@@ -19,7 +19,7 @@
       --border-color: #d2d2d7;
       --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
-    
+
     body {
       font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
       color: var(--text-color);
@@ -39,7 +39,7 @@
       display: flex;
       flex: 1;
     }
-    
+
     /* 侧边栏样式 */
     .sidebar {
       width: 260px;
@@ -50,16 +50,15 @@
       overflow-y: auto;
       z-index: 1;
     }
-    
+
     /* 内容区域样式 */
     .content-wrapper {
       flex: 1;
       margin-left: 260px;
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
-    
+
     /* 导航栏样式 */
     .navbar {
       position: fixed;
@@ -72,7 +71,7 @@
       height: 60px;
       z-index: 2;
     }
-    
+
     /* 主要内容样式 */
     .markdown-section {
       font-size: 17px;
@@ -86,7 +85,7 @@
       box-shadow: var(--shadow);
       flex: 1;
     }
-    
+
     /* 页脚样式 */
     .copyright {
       text-align: center;
@@ -96,18 +95,20 @@
       background-color: var(--card-bg);
       border-top: 1px solid var(--border-color);
       margin-top: auto;
+      width: calc(100% - 260px);
+      margin-left: 260px;
     }
-    
+
     .copyright a {
       color: var(--light-text);
       text-decoration: none;
     }
-    
+
     .copyright a:hover {
       color: var(--primary-color);
       text-decoration: underline;
     }
-    
+
     /* 标题样式 */
     .markdown-section h1 {
       font-size: 32px;
@@ -115,7 +116,7 @@
       margin: 0 0 24px;
       color: var(--text-color);
     }
-    
+
     .markdown-section h2 {
       font-size: 24px;
       font-weight: 600;
@@ -123,33 +124,33 @@
       border-bottom: none;
       padding-bottom: 0;
     }
-    
+
     .markdown-section h3 {
       font-size: 19px;
       font-weight: 600;
       margin: 32px 0 12px;
     }
-    
+
     .markdown-section p {
       font-size: 17px;
       font-weight: 400;
       margin: 0 0 24px;
     }
-    
+
     .markdown-section a {
       color: var(--primary-color);
       text-decoration: none;
       transition: color 0.2s ease;
     }
-    
+
     .markdown-section a:hover {
       text-decoration: underline;
     }
-    
+
     .markdown-section strong {
       font-weight: 600;
     }
-    
+
     .markdown-section code {
       font-family: 'SF Mono', Menlo, Monaco, Consolas, monospace;
       background-color: rgba(0, 0, 0, 0.05);
@@ -157,7 +158,7 @@
       border-radius: 4px;
       font-size: 15px;
     }
-    
+
     .sidebar ul li a {
       font-size: 15px;
       font-weight: 400;
@@ -165,38 +166,38 @@
       color: var(--text-color);
       transition: all 0.2s ease;
     }
-    
+
     .sidebar ul li.active>a {
       font-weight: 500;
       color: var(--primary-color);
       background-color: rgba(0, 113, 227, 0.08);
     }
-    
+
     .sidebar ul li a:hover {
       color: var(--primary-color);
       background-color: rgba(0, 113, 227, 0.04);
     }
-    
+
     .app-name-link {
       font-size: 20px;
       font-weight: 600;
       padding: 20px;
       color: var(--text-color);
     }
-    
+
     .navbar a {
       font-size: 15px;
       font-weight: 500;
       color: var(--text-color);
     }
-    
+
     /* 代码块样式 */
     pre[data-lang] {
       border-radius: 12px;
       background-color: #f8f8f8 !important;
       border: 1px solid var(--border-color);
     }
-    
+
     /* 搜索框样式 */
     .search input {
       border-radius: 12px;
@@ -205,45 +206,45 @@
       font-size: 15px;
       transition: all 0.2s ease;
     }
-    
+
     .search input:focus {
       border-color: var(--primary-color);
       box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.2);
       outline: none;
     }
-    
+
     /* 分页样式 */
     .pagination {
       margin: 60px 0 0;
       border-top: 1px solid var(--border-color);
       padding-top: 30px;
     }
-    
+
     .pagination-item {
       transition: all 0.2s ease;
     }
-    
+
     .pagination-item:hover {
       opacity: 0.8;
     }
-    
+
     .pagination-item-label {
       font-size: 13px;
       color: var(--light-text);
     }
-    
+
     .pagination-item-title {
       font-size: 17px;
       color: var(--primary-color);
       font-weight: 500;
     }
-    
+
     /* 响应式设计 */
     @media (max-width: 768px) {
       .main-container {
         flex-direction: column;
       }
-      
+
       .sidebar {
         width: 100%;
         height: auto;
@@ -252,28 +253,28 @@
         transition: max-height 0.3s ease;
         position: relative;
       }
-      
+
       .sidebar.visible {
         max-height: 100vh;
       }
-      
+
       .content-wrapper {
         margin-left: 0;
         width: 100%;
       }
-      
+
       .navbar {
         width: 100%;
         margin-left: 0;
       }
-      
+
       .markdown-section {
         margin: 60px auto 20px;
         padding: 0 20px;
         border-radius: 0;
         box-shadow: none;
       }
-      
+
       .copyright {
         width: 100%;
         margin-left: 0;
@@ -284,12 +285,16 @@
 
 <body>
   <div class="main-container">
-    <div id="app"></div>
+    <div class="content-wrapper">
+      <div class="navbar"></div>
+      <div class="markdown-section"></div>
+    </div>
+    <div class="sidebar"></div>
   </div>
   <div class="copyright">
     &copy; <a href="https://github.com/weierboge" target="_blank">2025 韦二伯格</a> - 保留所有权利
   </div>
-  
+
   <script>
     window.$docsify = {
       name: '韦二伯格',
@@ -318,8 +323,8 @@
         crossChapterText: true,
       },
       plugins: [
-        function(hook, vm) {
-          hook.ready(function() {
+        function (hook, vm) {
+          hook.ready(function () {
             // 添加苹果风格的加载动画
             const app = document.getElementById('app');
             app.style.opacity = '0';
@@ -327,7 +332,7 @@
               app.style.transition = 'opacity 0.4s ease';
               app.style.opacity = '1';
             }, 100);
-            
+
             // 确保内容区域正确包裹
             const content = document.querySelector('.content');
             if (content) {
@@ -353,5 +358,4 @@
   <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
 </body>
 
-</html>
-    
+</html>    
