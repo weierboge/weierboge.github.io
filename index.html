@@ -28,7 +28,7 @@
     }
 
     /* 主容器 - 包裹所有内容除了页脚 */
-    .main-container {
+   .main-container {
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -36,7 +36,7 @@
     }
 
     /* 修改主内容区域 - 移除内部滚动 */
-    .markdown-section {
+   .markdown-section {
       font-size: 16px;
       line-height: 1.7;
       max-width: 800px;
@@ -50,20 +50,20 @@
     }
 
     /* 侧边栏样式 */
-    .sidebar {
+   .sidebar {
       background: #fafafa;
       border-right: 1px solid #eaecef;
-      border-bottom: 1px solid #eaecef; /* 添加底部边框 */
-      position: fixed; /* 固定定位 */
+      border-bottom: 1px solid #eaecef;
+      position: fixed;
       top: 0;
       left: 0;
       height: 100%;
-      width: 200px; /* 侧边栏宽度 */
-      z-index: 11; /* 确保侧边栏在页脚之上 */
-      box-sizing: border-box; /* 确保边框不影响宽度 */
+      width: 200px;
+      z-index: 11;
+      box-sizing: border-box;
     }
 
-    .sidebar ul li a {
+   .sidebar ul li a {
       font-size: 0.95rem;
       font-weight: 400;
       padding-left: 1rem;
@@ -71,44 +71,44 @@
       transition: all 0.2s;
     }
 
-    .sidebar ul li a:hover {
+   .sidebar ul li a:hover {
       color: #3eaf7c;
     }
 
-    .sidebar ul li.active>a {
+   .sidebar ul li.active>a {
       font-weight: 600;
       color: #3eaf7c;
       border-left: 2px solid #3eaf7c;
       background-color: rgba(62, 175, 124, 0.1);
     }
 
-    .sidebar ul {
+   .sidebar ul {
       padding-left: 0;
     }
 
-    .app-name {
+   .app-name {
       color: #2c3e50;
     }
 
-    .app-name-link {
+   .app-name-link {
       font-size: 1.2rem;
       font-weight: 700;
       color: #2c3e50;
     }
 
     /* 导航栏样式 */
-    .navbar {
+   .navbar {
       background: #fff;
       border-bottom: 1px solid #eaecef;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
 
-    .navbar a {
+   .navbar a {
       font-size: 0.95rem;
       color: #2c3e50;
     }
 
-    .navbar a:hover {
+   .navbar a:hover {
       color: #3eaf7c;
     }
 
@@ -119,24 +119,24 @@
       font-size: 0.85rem;
       color: #7f8c8d;
       background: #fff;
-      border-top: 0; /* 移除顶部边框 */
+      border-top: 0;
       border-left: 1px solid #eaecef;
       border-bottom: 1px solid #eaecef;
-      width: calc(100% - 200px); /* 页脚宽度减去侧边栏宽度 */
+      width: calc(100% - 200px);
       flex-shrink: 0;
       position: fixed;
       bottom: 0;
-      right: 0; /* 靠右对齐 */
-      z-index: 10; /* 确保页脚在侧边栏之下 */
-      box-sizing: border-box; /* 确保边框不影响宽度 */
+      right: 0;
+      z-index: 10;
+      box-sizing: border-box;
     }
 
     /* 分页导航样式 */
-    .pagination {
+   .pagination {
       margin: 40px 0 20px;
     }
 
-    .pagination-item a {
+   .pagination-item a {
       color: #2c3e50;
       border: 1px solid #eaecef;
       border-radius: 4px;
@@ -144,7 +144,7 @@
       padding: 8px 16px;
     }
 
-    .pagination-item a:hover {
+   .pagination-item a:hover {
       color: #3eaf7c;
       border-color: #3eaf7c;
     }
@@ -157,25 +157,6 @@
     }
 
     /* 响应式布局优化 */
-    @media (max-width: 1440px) {
-      .markdown-section {
-        max-width: 80vw;
-      }
-    }
-
-    @media (max-width: 1200px) {
-      .markdown-section {
-        max-width: 80vw;
-      }
-    }
-
-    @media (max-width: 992px) {
-      .markdown-section {
-        max-width: 90vw;
-        margin-left: 0;
-      }
-    }
-
     @media (max-width: 768px) {
       .sidebar {
         display: none;
@@ -192,6 +173,7 @@
         width: 100%;
         right: auto;
         left: 0;
+        border-left: 0; /* 侧边栏隐藏时移除左边框 */
       }
     }
   </style>
