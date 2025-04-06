@@ -1,7 +1,9 @@
 
-# 欢迎来到我的主页 Welcome to my homepage.
+# 欢迎来到我的主页 
+Welcome to my homepage.
 
 这是我的中英文介绍，你可以选择查看不同语言版本：
+
 This is my introduction in Chinese and English. You can choose to view different language versions.
 
 [中文版本](README.md) / [English version](README_en.md)
