@@ -29,31 +29,88 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* 主容器布局 */
+    .main-container {
+      display: flex;
+      flex: 1;
     }
     
-    .page-container {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    
-    #app {
+    /* 侧边栏样式 */
+    .sidebar {
+      width: 260px;
       background-color: var(--card-bg);
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-      margin: 40px 0;
-      overflow: hidden;
+      border-right: 1px solid var(--border-color);
+      position: fixed;
+      height: 100vh;
+      overflow-y: auto;
+      z-index: 1;
     }
     
+    /* 内容区域样式 */
+    .content-wrapper {
+      flex: 1;
+      margin-left: 260px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* 导航栏样式 */
+    .navbar {
+      position: fixed;
+      width: calc(100% - 260px);
+      margin-left: 260px;
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-color);
+      height: 60px;
+      z-index: 2;
+    }
+    
+    /* 主要内容样式 */
     .markdown-section {
       font-size: 17px;
       line-height: 1.8;
       max-width: 720px;
-      margin: 0 auto;
-      padding: 60px 40px;
+      margin: 80px auto 40px;
+      padding: 0 40px;
       color: var(--text-color);
+      background-color: var(--card-bg);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      flex: 1;
     }
     
+    /* 页脚样式 */
+    .copyright {
+      text-align: center;
+      padding: 30px 0;
+      font-size: 13px;
+      color: var(--light-text);
+      background-color: var(--card-bg);
+      border-top: 1px solid var(--border-color);
+      margin-top: auto;
+      width: calc(100% - 260px);
+      margin-left: 260px;
+    }
+    
+    .copyright a {
+      color: var(--light-text);
+      text-decoration: none;
+    }
+    
+    .copyright a:hover {
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
+    
+    /* 标题样式 */
     .markdown-section h1 {
       font-size: 32px;
       font-weight: 600;
@@ -103,12 +160,6 @@
       font-size: 15px;
     }
     
-    .sidebar {
-      background-color: var(--card-bg);
-      border-right: 1px solid var(--border-color);
-      width: 260px;
-    }
-    
     .sidebar ul li a {
       font-size: 15px;
       font-weight: 400;
@@ -135,38 +186,35 @@
       color: var(--text-color);
     }
     
-    .navbar {
-      background-color: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border-color);
-      height: 60px;
-    }
-    
     .navbar a {
       font-size: 15px;
       font-weight: 500;
       color: var(--text-color);
     }
     
-    .copyright {
-      text-align: center;
-      padding: 30px 0;
-      font-size: 13px;
-      color: var(--light-text);
-      margin-top: 0;
+    /* 代码块样式 */
+    pre[data-lang] {
+      border-radius: 12px;
+      background-color: #f8f8f8 !important;
+      border: 1px solid var(--border-color);
     }
     
-    .copyright a {
-      color: var(--light-text);
-      text-decoration: none;
+    /* 搜索框样式 */
+    .search input {
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      padding: 8px 15px;
+      font-size: 15px;
+      transition: all 0.2s ease;
     }
     
-    .copyright a:hover {
-      color: var(--primary-color);
-      text-decoration: underline;
+    .search input:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.2);
+      outline: none;
     }
     
+    /* 分页样式 */
     .pagination {
       margin: 60px 0 0;
       border-top: 1px solid var(--border-color);
@@ -192,69 +240,58 @@
       font-weight: 500;
     }
     
-    /* 代码块样式 */
-    pre[data-lang] {
-      border-radius: 12px;
-      background-color: #f8f8f8 !important;
-      border: 1px solid var(--border-color);
-    }
-    
-    /* 搜索框样式 */
-    .search input {
-      border-radius: 12px;
-      border: 1px solid var(--border-color);
-      padding: 8px 15px;
-      font-size: 15px;
-      transition: all 0.2s ease;
-    }
-    
-    .search input:focus {
-      border-color: var(--primary-color);
-      box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.2);
-      outline: none;
-    }
-    
     /* 响应式设计 */
     @media (max-width: 768px) {
-      .page-container {
-        padding: 0 15px;
-      }
-      
-      #app {
-        margin: 20px 0;
-      }
-      
-      .markdown-section {
-        padding: 40px 20px;
-      }
-      
-      .markdown-section h1 {
-        font-size: 28px;
-      }
-      
-      .markdown-section h2 {
-        font-size: 22px;
+      .main-container {
+        flex-direction: column;
       }
       
       .sidebar {
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
+        width: 100%;
+        height: auto;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        position: relative;
       }
       
       .sidebar.visible {
-        transform: translateX(0);
+        max-height: 100vh;
+      }
+      
+      .content-wrapper {
+        margin-left: 0;
+        width: 100%;
+      }
+      
+      .navbar {
+        width: 100%;
+        margin-left: 0;
+      }
+      
+      .markdown-section {
+        margin: 60px auto 20px;
+        padding: 0 20px;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      
+      .copyright {
+        width: 100%;
+        margin-left: 0;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="page-container">
+  <div class="main-container">
     <div id="app"></div>
   </div>
   <div class="copyright">
     &copy; <a href="https://github.com/weierboge" target="_blank">2025 韦二伯格</a> - 保留所有权利
   </div>
+  
   <script>
     window.$docsify = {
       name: '韦二伯格',
@@ -292,6 +329,15 @@
               app.style.transition = 'opacity 0.4s ease';
               app.style.opacity = '1';
             }, 100);
+            
+            // 确保内容区域正确包裹
+            const content = document.querySelector('.content');
+            if (content) {
+              const wrapper = document.createElement('div');
+              wrapper.className = 'content-wrapper';
+              content.parentNode.insertBefore(wrapper, content);
+              wrapper.appendChild(content);
+            }
           });
         }
       ]
