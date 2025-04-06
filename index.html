@@ -5,115 +5,234 @@
   <meta charset="UTF-8">
   <title>韦二伯格的博客</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description">
+  <meta name="description" content="韦二伯格的个人博客，分享技术思考和人生感悟">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   <style>
-    /* 自定义样式，使字体更大更醒目 */
-   .markdown-section {
+    /* 全局样式 */
+    body {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      background-attachment: fixed;
+      color: #e6e6e6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* 背景装饰元素 */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://source.unsplash.com/random/1920x1080/?nature,water,mountain') no-repeat center center;
+      background-size: cover;
+      opacity: 0.15;
+      z-index: -1;
+    }
+
+    /* 主内容区域 */
+    .markdown-section {
       font-size: 16px;
-      line-height: 1.6;
+      line-height: 1.7;
       max-width: 800px;
       margin: 0 auto;
-      padding: 0 00px;
-      padding-bottom: 10px; /* 减少内容区域底部的内边距 */
-      margin-bottom: 10px; /* 减少内容区域底部的外边距 */
-      min-height: 100vh; /* 添加最小高度，确保内容区域不会过短 */
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: 20px;
+      margin-bottom: 20px;
     }
 
-   .markdown-section h1 {
-      font-size: 1.2rem;
-      font-weight: normal;
+    .markdown-section h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 0.5rem;
     }
 
-   .markdown-section h2 {
-      font-size: 1.5rem;
-      font-weight: normal;
-      border-bottom: 1px solid #eaecef;
+    .markdown-section h2 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: #ffffff;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       padding-bottom: 0.3rem;
+      margin-top: 2rem;
     }
 
-   .markdown-section h3 {
-      font-size: 1rem;
-      font-weight: normal;
+    .markdown-section h3 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #ffffff;
+      margin-top: 1.5rem;
     }
 
-   .markdown-section p {
-      font-size: 1rem;
+    .markdown-section p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.8);
     }
 
-   .markdown-section strong {
-      font-weight: 700;
+    .markdown-section strong {
+      font-weight: 600;
+      color: #ffffff;
     }
 
-   .sidebar ul li a {
+    .markdown-section a {
+      color: #4dabf7;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .markdown-section a:hover {
+      color: #74c0fc;
+      text-decoration: underline;
+    }
+
+    /* 侧边栏样式 */
+    .sidebar {
+      background: rgba(26, 26, 46, 0.8);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-right: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .sidebar ul li a {
       font-size: 1rem;
       font-weight: 500;
       padding-left: 15px;
+      color: rgba(255, 255, 255, 0.7);
+      transition: all 0.2s;
     }
 
-   .sidebar ul li.active>a {
-      font-weight: 700;
+    .sidebar ul li a:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.05);
     }
 
-   .sidebar ul {
+    .sidebar ul li.active>a {
+      font-weight: 600;
+      color: #4dabf7;
+      background: rgba(77, 171, 247, 0.1);
+    }
+
+    .sidebar ul {
       padding-left: 10px;
     }
 
-   .app-name-link {
-      font-size: 1rem;
+    .app-name {
+      color: #ffffff;
+    }
+
+    .app-name-link {
+      font-size: 1.2rem;
       font-weight: 700;
+      color: #ffffff;
     }
 
-   .navbar a {
+    /* 导航栏样式 */
+    .navbar {
+      background: rgba(26, 26, 46, 0.8);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .navbar a {
       font-size: 1rem;
-    }
-    /* 版权声明样式 */
-   .copyright {
-      text-align: center;
-      padding: 40px 0;
-      font-size: 0.9rem;
-      color: #666;
-      margin-top: 20px; /* 减少版权声明的上边距 */
-    }
-    /* 分页导航样式 */
-   .pagination {
-      margin-top: 30px; /* 调整分页导航的上边距 */
+      color: rgba(255, 255, 255, 0.7);
     }
 
-    /* 为页面底部添加留白 */
-   .page-container {
-      padding-bottom: 40px;
+    .navbar a:hover {
+      color: #ffffff;
+    }
+
+    /* 版权声明样式 */
+    .copyright {
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin-top: auto; /* 确保页脚在底部 */
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .copyright a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+    }
+
+    .copyright a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    /* 分页导航样式 */
+    .pagination {
+      margin: 30px 0;
+    }
+
+    .pagination-item a {
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.8);
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .pagination-item a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+    }
+
+    /* 代码块样式 */
+    pre[data-lang] {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     /* 响应式布局优化 */
     @media (max-width: 1440px) {
-     .markdown-section {
+      .markdown-section {
         max-width: 80vw;
       }
     }
 
     @media (max-width: 1200px) {
-     .markdown-section {
+      .markdown-section {
         max-width: 80vw;
       }
     }
 
     @media (max-width: 992px) {
-     .markdown-section {
+      .markdown-section {
         max-width: 90vw;
         margin-left: 150px;
       }
     }
 
     @media (max-width: 768px) {
-     .sidebar {
+      .sidebar {
         display: none;
       }
-     .markdown-section {
+      .markdown-section {
         max-width: 100%;
         margin-left: 0;
-        padding: 0 10px;
+        padding: 15px;
+        border-radius: 0;
+      }
+      body::before {
+        opacity: 0.1;
       }
     }
   </style>
@@ -124,7 +243,7 @@
     <div id="app"></div>
   </div>
   <div class="copyright">
-    &copy; <a href="https://github.com/weierboge" target="_blank">2025 韦二伯格</a>
+    &copy; <a href="https://github.com/weierboge" target="_blank">2025 韦二伯格</a> - 保留所有权利
   </div>
   <script>
     window.$docsify = {
@@ -151,6 +270,7 @@
         crossChapter: true,
         crossChapterText: true,
       },
+      themeColor: '#4dabf7'
     }
   </script>
   <!-- Docsify v4 -->
