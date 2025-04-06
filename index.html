@@ -57,9 +57,9 @@
       top: 0;
       left: 0;
       height: 100%;
-      width: 300px; /* 侧边栏宽度 */
+      width: 200px; /* 侧边栏宽度 */
       z-index: 11; /* 确保侧边栏在页脚之上 */
-      padding-bottom: 80px; /* 根据页脚高度调整，这里假设页脚高度为 60px */
+      padding-bottom: 60px; /* 根据页脚高度调整，这里假设页脚高度为 60px */
       box-sizing: border-box; /* 确保 padding 不会增加宽度 */
     }
 
@@ -187,6 +187,8 @@
       }
       footer.copyright {
         width: 100%; /* 小屏幕时页脚宽度为 100% */
+        right: auto; /* 重置 right 属性 */
+        left: 0; /* 靠左对齐 */
       }
     }
   </style>
