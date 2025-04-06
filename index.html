@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   <style>
     /* 自定义样式，使字体更大更醒目 */
-    .markdown-section {
+   .markdown-section {
       font-size: 16px;
       line-height: 1.6;
       max-width: 800px;
@@ -18,6 +18,7 @@
       padding: 0 00px;
       padding-bottom: 10px; /* 减少内容区域底部的内边距 */
       margin-bottom: 10px; /* 减少内容区域底部的外边距 */
+      min-height: 100vh; /* 添加最小高度，确保内容区域不会过短 */
     }
 
    .markdown-section h1 {
@@ -73,16 +74,19 @@
       padding: 40px 0;
       font-size: 0.9rem;
       color: #666;
-     margin-top: 20px; /* 减少版权声明的上边距 */
+      margin-top: 20px; /* 减少版权声明的上边距 */
     }
-  /* 分页导航样式 */
+    /* 分页导航样式 */
    .pagination {
       margin-top: 30px; /* 调整分页导航的上边距 */
+    }
+
     /* 为页面底部添加留白 */
-    body {
+   .page-container {
       padding-bottom: 40px;
     }
-      /* 响应式布局优化 */
+
+    /* 响应式布局优化 */
     @media (max-width: 1440px) {
      .markdown-section {
         max-width: 80vw;
@@ -116,7 +120,9 @@
 </head>
 
 <body>
-  <div id="app"></div>
+  <div class="page-container">
+    <div id="app"></div>
+  </div>
   <div class="copyright">
     &copy; <a href="https://github.com/weierboge" target="_blank">2025 韦二伯格</a>
   </div>
@@ -159,4 +165,4 @@
   <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
 </body>
 
-</html>    
+</html>
