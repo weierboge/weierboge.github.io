@@ -16,8 +16,6 @@
       margin: 0;
       padding: 0;
       overflow-x: hidden;
-      overflow-y: auto;
-      /* 防止水平滚动 */
     }
 
     body {
@@ -26,14 +24,12 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-      /* 使用视口高度单位 */
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     }
 
     /* 主容器 - 包裹所有内容除了页脚 */
     .main-container {
       flex: 1;
-      flex-grow: 1; 
       display: flex;
       flex-direction: column;
       width: 100%;
@@ -53,57 +49,16 @@
       margin-bottom: 20px;
     }
 
-    .markdown-section h1 {
-      font-size: 2rem;
-      font-weight: 600;
-      color: #2c3e50;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid #eaecef;
-    }
-
-    .markdown-section h2 {
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: #2c3e50;
-      border-bottom: 1px solid #eaecef;
-      padding-bottom: 0.3rem;
-      margin-top: 2rem;
-    }
-
-    .markdown-section h3 {
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: #2c3e50;
-      margin-top: 1.5rem;
-    }
-
-    .markdown-section p {
-      font-size: 1rem;
-      color: #34495e;
-    }
-
-    .markdown-section strong {
-      font-weight: 600;
-    }
-
-    .markdown-section a {
-      color: #3eaf7c;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .markdown-section a:hover {
-      color: #4abf8a;
-      text-decoration: underline;
-    }
-
     /* 侧边栏样式 */
     .sidebar {
       background: #fafafa;
       border-right: 1px solid #eaecef;
-      z-index: 11;
-      position: relative; /* 确保侧边栏有非 static 的定位 */
+      position: fixed; /* 固定定位 */
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 200px; /* 侧边栏宽度 */
+      z-index: 11; /* 确保侧边栏在页脚之上 */
     }
 
     .sidebar ul li a {
@@ -163,12 +118,12 @@
       color: #7f8c8d;
       background: #fff;
       border-top: 1px solid #eaecef;
-      width: 100%;
+      width: calc(100% - 200px); /* 页脚宽度减去侧边栏宽度 */
       flex-shrink: 0;
-      margin-top: auto;
-      position: fixed; /* 固定定位 */
-      bottom: 0; /* 固定在底部 */
-      z-index: 10; /* 设置 z-index 确保页脚在最上层 */
+      position: fixed;
+      bottom: 0;
+      right: 0; /* 靠右对齐 */
+      z-index: 10; /* 确保页脚在侧边栏之下 */
     }
 
     /* 分页导航样式 */
@@ -212,7 +167,7 @@
     @media (max-width: 992px) {
       .markdown-section {
         max-width: 90vw;
-        margin-left: 150px;
+        margin-left: 0;
       }
     }
 
@@ -227,6 +182,9 @@
         border-radius: 0;
         box-shadow: none;
         border: none;
+      }
+      footer.copyright {
+        width: 100%; /* 小屏幕时页脚宽度为 100% */
       }
     }
   </style>
@@ -279,4 +237,4 @@
   <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
 </body>
 
-</html>
+</html>    
