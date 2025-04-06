@@ -46,6 +46,8 @@
       margin-bottom: 20px;
       flex: 1;
       overflow-y: auto; /* 内容过多时添加滚动条 */
+      /* 添加以下属性确保内容不会溢出 */
+      max-height: calc(100vh - 160px); /* 根据页脚高度调整 */
     }
 
     .markdown-section h1 {
@@ -158,6 +160,7 @@
       border-top: 1px solid #eaecef;
       width: 100%;
       flex-shrink: 0;
+      margin-top: auto; /* 添加这个属性将页脚推到底部 */
     }
 
     footer.copyright a {
