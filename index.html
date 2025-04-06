@@ -5,276 +5,227 @@
   <meta charset="UTF-8">
   <title>韦二伯格的博客</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="韦二伯格的个人博客 - 分享技术与思考">
+  <meta name="description" content="韦二伯格的个人博客，分享技术思考和人生感悟">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary-color: #0071e3;
-      --text-color: #1d1d1f;
-      --light-text: #86868b;
-      --bg-color: #f5f5f7;
-      --card-bg: #ffffff;
-      --border-color: #d2d2d7;
-      --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    /* 全局样式 */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
     }
     
     body {
-      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      color: var(--text-color);
-      background-color: var(--bg-color);
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      background: #f8f9fa;
+      color: #333;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     }
 
-    /* 主容器布局 */
+    /* 主容器 - 包裹所有内容除了页脚 */
     .main-container {
-      display: flex;
       flex: 1;
-      position: relative;
-    }
-    
-    /* 侧边栏样式 */
-    .sidebar {
-      width: 260px;
-      background-color: var(--card-bg);
-      border-right: 1px solid var(--border-color);
-      position: fixed;
-      height: 100vh;
-      overflow-y: auto;
-      z-index: 1;
-    }
-    
-    /* 内容区域样式 */
-    .content-wrapper {
-      flex: 1;
-      margin-left: 260px;
       display: flex;
       flex-direction: column;
-      min-height: calc(100vh - 60px);
-      padding-bottom: 40px;
+      min-height: 0; /* 重要：防止Flexbox溢出 */
     }
-    
-    /* 导航栏样式 */
-    .navbar {
-      position: fixed;
-      width: calc(100% - 260px);
-      margin-left: 260px;
-      background-color: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border-color);
-      height: 60px;
-      z-index: 2;
-      top: 0;
-    }
-    
-    /* 主要内容样式 */
+
+    /* 主内容区域 */
     .markdown-section {
-      font-size: 17px;
-      line-height: 1.8;
-      max-width: 720px;
-      margin: 80px auto 0;
-      padding: 0 40px;
-      color: var(--text-color);
-      background-color: var(--card-bg);
-      border-radius: 18px;
-      box-shadow: var(--shadow);
+      font-size: 16px;
+      line-height: 1.7;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      border-radius: 4px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      flex: 1;
+      overflow-y: auto; /* 内容过多时添加滚动条 */
     }
-    
-    /* 页脚样式 */
-    .copyright {
-      text-align: center;
-      padding: 30px 0;
-      font-size: 13px;
-      color: var(--light-text);
-      background-color: var(--card-bg);
-      border-top: 1px solid var(--border-color);
-      width: 100%;
-    }
-    
-    .copyright a {
-      color: var(--light-text);
-      text-decoration: none;
-    }
-    
-    .copyright a:hover {
-      color: var(--primary-color);
-      text-decoration: underline;
-    }
-    
-    /* 标题样式 */
+
     .markdown-section h1 {
-      font-size: 32px;
+      font-size: 2rem;
       font-weight: 600;
-      margin: 0 0 24px;
-      color: var(--text-color);
+      color: #2c3e50;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #eaecef;
     }
-    
+
     .markdown-section h2 {
-      font-size: 24px;
+      font-size: 1.6rem;
       font-weight: 600;
-      margin: 48px 0 16px;
-      border-bottom: none;
-      padding-bottom: 0;
+      color: #2c3e50;
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 0.3rem;
+      margin-top: 2rem;
     }
-    
+
     .markdown-section h3 {
-      font-size: 19px;
+      font-size: 1.3rem;
       font-weight: 600;
-      margin: 32px 0 12px;
+      color: #2c3e50;
+      margin-top: 1.5rem;
     }
-    
+
     .markdown-section p {
-      font-size: 17px;
-      font-weight: 400;
-      margin: 0 0 24px;
+      font-size: 1rem;
+      color: #34495e;
     }
-    
-    .markdown-section a {
-      color: var(--primary-color);
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-    
-    .markdown-section a:hover {
-      text-decoration: underline;
-    }
-    
+
     .markdown-section strong {
       font-weight: 600;
     }
-    
-    .markdown-section code {
-      font-family: 'SF Mono', Menlo, Monaco, Consolas, monospace;
-      background-color: rgba(0, 0, 0, 0.05);
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-size: 15px;
+
+    .markdown-section a {
+      color: #3eaf7c;
+      text-decoration: none;
+      transition: color 0.2s;
     }
-    
+
+    .markdown-section a:hover {
+      color: #4abf8a;
+      text-decoration: underline;
+    }
+
+    /* 侧边栏样式 */
+    .sidebar {
+      background: #fafafa;
+      border-right: 1px solid #eaecef;
+    }
+
     .sidebar ul li a {
-      font-size: 15px;
+      font-size: 0.95rem;
       font-weight: 400;
-      padding: 8px 20px;
-      color: var(--text-color);
-      transition: all 0.2s ease;
+      padding-left: 1rem;
+      color: #2c3e50;
+      transition: all 0.2s;
     }
-    
-    .sidebar ul li.active>a {
-      font-weight: 500;
-      color: var(--primary-color);
-      background-color: rgba(0, 113, 227, 0.08);
-    }
-    
+
     .sidebar ul li a:hover {
-      color: var(--primary-color);
-      background-color: rgba(0, 113, 227, 0.04);
+      color: #3eaf7c;
     }
-    
-    .app-name-link {
-      font-size: 20px;
+
+    .sidebar ul li.active>a {
       font-weight: 600;
-      padding: 20px;
-      color: var(--text-color);
+      color: #3eaf7c;
+      border-left: 2px solid #3eaf7c;
+      background-color: rgba(62, 175, 124, 0.1);
     }
-    
+
+    .sidebar ul {
+      padding-left: 0;
+    }
+
+    .app-name {
+      color: #2c3e50;
+    }
+
+    .app-name-link {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #2c3e50;
+    }
+
+    /* 导航栏样式 */
+    .navbar {
+      background: #fff;
+      border-bottom: 1px solid #eaecef;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
     .navbar a {
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--text-color);
+      font-size: 0.95rem;
+      color: #2c3e50;
     }
-    
+
+    .navbar a:hover {
+      color: #3eaf7c;
+    }
+
+    /* 版权声明样式 - GitBook风格 */
+    footer.copyright {
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.85rem;
+      color: #7f8c8d;
+      background: #fff;
+      border-top: 1px solid #eaecef;
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    footer.copyright a {
+      color: #3eaf7c;
+      text-decoration: none;
+    }
+
+    footer.copyright a:hover {
+      color: #4abf8a;
+      text-decoration: underline;
+    }
+
+    /* 分页导航样式 */
+    .pagination {
+      margin: 40px 0 20px;
+    }
+
+    .pagination-item a {
+      color: #2c3e50;
+      border: 1px solid #eaecef;
+      border-radius: 4px;
+      transition: all 0.2s;
+      padding: 8px 16px;
+    }
+
+    .pagination-item a:hover {
+      color: #3eaf7c;
+      border-color: #3eaf7c;
+    }
+
     /* 代码块样式 */
     pre[data-lang] {
-      border-radius: 12px;
-      background-color: #f8f8f8 !important;
-      border: 1px solid var(--border-color);
+      background: #f6f8fa;
+      border-radius: 4px;
+      border: 1px solid #eaecef;
     }
-    
-    /* 搜索框样式 */
-    .search input {
-      border-radius: 12px;
-      border: 1px solid var(--border-color);
-      padding: 8px 15px;
-      font-size: 15px;
-      transition: all 0.2s ease;
-    }
-    
-    .search input:focus {
-      border-color: var(--primary-color);
-      box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.2);
-      outline: none;
-    }
-    
-    /* 分页样式 */
-    .pagination {
-      margin: 60px 0 0;
-      border-top: 1px solid var(--border-color);
-      padding-top: 30px;
-    }
-    
-    .pagination-item {
-      transition: all 0.2s ease;
-    }
-    
-    .pagination-item:hover {
-      opacity: 0.8;
-    }
-    
-    .pagination-item-label {
-      font-size: 13px;
-      color: var(--light-text);
-    }
-    
-    .pagination-item-title {
-      font-size: 17px;
-      color: var(--primary-color);
-      font-weight: 500;
-    }
-    
-    /* 响应式设计 */
-    @media (max-width: 768px) {
-      .main-container {
-        flex-direction: column;
-      }
-      
-      .sidebar {
-        width: 100%;
-        height: auto;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-        position: relative;
-      }
-      
-      .sidebar.visible {
-        max-height: 100vh;
-      }
-      
-      .content-wrapper {
-        margin-left: 0;
-        width: 100%;
-        min-height: calc(100vh - 60px);
-      }
-      
-      .navbar {
-        width: 100%;
-        margin-left: 0;
-      }
-      
+
+    /* 响应式布局优化 */
+    @media (max-width: 1440px) {
       .markdown-section {
-        margin: 60px auto 0;
-        padding: 0 20px;
+        max-width: 80vw;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .markdown-section {
+        max-width: 80vw;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .markdown-section {
+        max-width: 90vw;
+        margin-left: 150px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+      .markdown-section {
+        max-width: 100%;
+        margin-left: 0;
+        padding: 20px 15px;
         border-radius: 0;
         box-shadow: none;
+        border: none;
       }
     }
   </style>
@@ -287,10 +238,9 @@
   <footer class="copyright">
     &copy; <a href="https://github.com/weierboge" target="_blank">2025 韦二伯格</a> - 保留所有权利
   </footer>
-  
   <script>
     window.$docsify = {
-      name: '韦二伯格',
+      name: '韦二伯格的博客',
       repo: '',
       basePath: 'docs/',
       loadSidebar: true,
@@ -299,44 +249,21 @@
       sidebarDisplayLevel: 1,
       auto2top: true,
       maxLevel: 3,
-      coverpage: false,
-      themeColor: '#0071E3',
       search: {
         maxAge: 86400000,
         paths: 'auto',
-        placeholder: '搜索文章...',
-        noData: '没有找到相关文章',
+        placeholder: '搜索',
+        noData: '找不到结果',
         depth: 6,
         hideOtherSidebarContent: false,
       },
       pagination: {
-        previousText: '上一篇文章',
-        nextText: '下一篇文章',
+        previousText: '上一章节',
+        nextText: '下一章节',
         crossChapter: true,
         crossChapterText: true,
       },
-      plugins: [
-        function(hook, vm) {
-          hook.ready(function() {
-            // 添加苹果风格的加载动画
-            const app = document.getElementById('app');
-            app.style.opacity = '0';
-            setTimeout(() => {
-              app.style.transition = 'opacity 0.4s ease';
-              app.style.opacity = '1';
-            }, 100);
-            
-            // 确保内容区域正确包裹
-            const content = document.querySelector('.content');
-            if (content) {
-              const wrapper = document.createElement('div');
-              wrapper.className = 'content-wrapper';
-              content.parentNode.insertBefore(wrapper, content);
-              wrapper.appendChild(content);
-            }
-          });
-        }
-      ]
+      themeColor: '#3eaf7c'
     }
   </script>
   <!-- Docsify v4 -->
