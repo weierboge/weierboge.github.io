@@ -8,7 +8,9 @@ This is my introduction in Chinese and English. You can choose to view different
 
 我是韦二伯格，一个导演和新媒体专业人士，喜欢探索最新的科技数码产品和各种新鲜事物。
 
-## 我的其他工作内容 :【短视频内容专家｜AIGC实战派创作者｜数码工具领域博主】
+## 我的其他工作内容 :
+
+【短视频内容专家｜AIGC实战派创作者｜数码工具领域博主】
 
 ★ 核心经历 
 - 曾任知名导演团队视频主创成员，纪录片创作全流程实践经验 
